@@ -57,7 +57,8 @@ class EntreeMenuFragment : Fragment() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
-            // TODO: initialize the EntreeMenuFragment variables
+            // initialize the EntreeMenuFragment variables
+            fragment = this@EntreeMenuFragment
         }
     }
 
@@ -66,6 +67,8 @@ class EntreeMenuFragment : Fragment() {
      */
     fun goToNextScreen() {
         // TODO: Navigate to the SideMenuFragment
+        val action = EntreeMenuFragmentDirections.actionEntreeMenuFragment
+
     }
 
     /**

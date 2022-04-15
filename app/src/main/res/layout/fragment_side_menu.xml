@@ -26,7 +26,10 @@
             name="viewModel"
             type="com.example.lunchtray.model.OrderViewModel" />
 
-        <!-- TODO: Add the data binding variable for the SideMenuFragment -->
+        <!-- Add the data binding variable for the SideMenuFragment -->
+        <variable
+            name="fragment"
+            type="com.example.lunchtray.ui.order.SideMenuFragment" />
     </data>
 
     <ScrollView
@@ -48,12 +51,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <!-- TODO: set the side in the view model when the RadioButton is clicked -->
+                <!-- set the side in the view model when the RadioButton is clicked -->
                 <RadioButton
                     android:id="@+id/salad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick="@{() -> viewModel.setSide(@string/salad)"
                     android:text='@{viewModel.menuItems["salad"].name}'
                     tools:text="Side 1" />
 
@@ -78,12 +82,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/salad_description" />
 
-                <!-- TODO: set the side in the view model when the RadioButton is clicked -->
+                <!-- set the side in the view model when the RadioButton is clicked -->
                 <RadioButton
                     android:id="@+id/soup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick="@{() -> viewModel.setSide(@string/soup)"
                     android:text='@{viewModel.menuItems["soup"].name}'
                     tools:text="Side 2" />
 
@@ -109,12 +114,13 @@
                     app:layout_constraintTop_toBottomOf="@id/soup_description" />
 
 
-                <!-- TODO: set the side in the view model when the RadioButton is clicked -->
+                <!-- set the side in the view model when the RadioButton is clicked -->
                 <RadioButton
                     android:id="@+id/potatoes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick="@{() -> viewModel.setSide(@string/potatoes)"
                     android:text='@{viewModel.menuItems["potatoes"].name}'
                     tools:text="Side 3" />
 
@@ -139,12 +145,13 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/potato_description" />
 
-                <!-- TODO: set the side in the view model when the RadioButton is clicked -->
+                <!-- set the side in the view model when the RadioButton is clicked -->
                 <RadioButton
                     android:id="@+id/rice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?attr/textAppearanceBody1"
+                    android:onClick="@{() -> viewModel.setSide(@string/rice)"
                     android:text='@{viewModel.menuItems["rice"].name}'
                     tools:text="Side 4" />
 
@@ -173,25 +180,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/side_options" />
 
-            <!-- TODO: set the text to the current subtotal value from the view model -->
+            <!-- set the text to the current subtotal value from the view model -->
             <TextView
                 android:id="@+id/subtotal"
                 style="@style/Widget.LunchTray.TextView.Subtotal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider"
+                android:text="@{@string/subtotal(viewModel.subtotal)}"
                 tools:text="Subtotal $5.00"/>
 
-            <!-- TODO: cancel the order when clicked -->
+            <!-- cancel the order when clicked -->
             <Button
                 android:id="@+id/cancel_button"
                 style="@style/Widget.Order.Button.Cancel"
+                android:onClick="@{() -> fragment.cancelOrder()"
                 app:layout_constraintEnd_toStartOf="@id/next_button"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/next_button" />
 
-            <!-- TODO: go to the next screen when clicked -->
+            <!-- go to the next screen when clicked -->
             <Button
                 android:id="@+id/next_button"
+                android:onClick="@{() -> fragment.goToNextScreen()"
                 style="@style/Widget.Order.Button.Next"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -29,4 +29,19 @@
     <string name="order_summary">Order Summary</string>
     <string name="submit">Submit Order</string>
     <string name="submit_order">Order Submitted!</string>
+    <string name="cauliflower">cauliflower</string>
+    <string name="chili">chili</string>
+    <string name="pasta">pasta</string>
+    <string name="skillet">skillet</string>
+    <string name="salad">salad</string>
+    <string name="soup">soup</string>
+    <string name="potatoes">potatoes</string>
+    <string name="rice">rice</string>
+    <string name="bread">bread</string>
+    <string name="berries">berries</string>
+    <string name="pickles">pickles</string>
+
+
+
+
 </resources>
